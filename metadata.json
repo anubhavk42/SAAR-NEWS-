@@ -1,0 +1,6 @@
+{
+  "name": "SAAR",
+  "description": "A calm, bounded 5-minute daily current-affairs digest for students and the general public.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
