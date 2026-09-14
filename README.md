@@ -45,7 +45,17 @@ Saar is designed around that job. It deliberately does not have an infinite feed
 
 **Core use case:** Open the app once a day, spend ~5 minutes on the day's digest, optionally take the daily quiz to check retention, and close the app with a clear sense of completion rather than "there's more below."
 
-## 3. Product principles
+## 3. The key decision
+
+The bet: **a bounded, non-infinite digest — with a fixed explanatory structure instead of a raw feed — is worth building against the entire industry norm of algorithmic, infinite-scroll news apps**, because the target user's actual job-to-be-done is completion, not endless engagement. A student preparing for an exam doesn't want to be kept scrolling; they want to finish, feel caught up, and get back to studying.
+
+## 4. The trade-off
+
+The hard choice was designing for **content boundedness** — a fixed daily set of stories, no infinite scroll, no personalized ranking algorithm — instead of the standard engagement playbook every other news app runs on. The alternative rejected: an algorithmically-ranked, infinitely-scrolling feed, which is the proven way to drive higher daily active use and session length.
+
+What that cost: by design, this product can't chase the metrics most content apps are judged by. A "successful" day for Saar is a *short* session that ends in "you're caught up" — the opposite of what a typical growth dashboard rewards. That means proving this product actually works requires different metrics than the industry default, not just accepting worse numbers on the standard ones.
+
+## 5. Product principles
 
 These are the design decisions that fall out of the problem above — useful context for anyone reading the code or extending the product:
 
@@ -57,7 +67,7 @@ These are the design decisions that fall out of the problem above — useful con
 | **Retention, not just consumption** | The Daily Quiz turns passive reading into active recall, with results tracked over time |
 | **Respect for the user's data and time** | Zero login, local-first storage (Room + DataStore), an explicit Data Saver toggle, and offline PDF export — the app assumes intermittent connectivity and exam-season time pressure |
 
-## 4. Feature breakdown
+## 6. Feature breakdown
 
 ### Today's Digest (Home)
 The daily entry point, now split into two sub-tabs:
@@ -110,7 +120,7 @@ Generates a downloadable PDF of the day's full digest (via Android's native `Pdf
 ### Onboarding
 A three-slide intro (5-minute digest promise → multi-source comparison → offline PDF) shown once, gated by a DataStore flag.
 
-## 5. What's deliberately *not* in v1
+## 7. What's deliberately *not* in v1
 
 Being explicit about scope is part of good product writing, so:
 - No social features (sharing is OS-level share sheet only, no comments/likes)
@@ -118,7 +128,7 @@ Being explicit about scope is part of good product writing, so:
 - No login/sync — all data is local to the device; uninstalling loses bookmarks and quiz history
 - No licensing/legal review of source content — this is a portfolio/demo project, not a publishing product
 
-## 6. Tech stack & architecture
+## 8. Tech stack & architecture
 
 **Language:** Kotlin
 **UI:** Jetpack Compose + Material 3
@@ -166,7 +176,7 @@ app/src/main/java/com/example/
 - `quiz_results` — score/total per date, for the retention-tracking use case
 - `translation_cache` — keyed on (text hash, language) so repeat translations are free
 
-## 7. Running locally
+## 9. Running locally
 
 **Prerequisites:** [Android Studio](https://developer.android.com/studio)
 
@@ -184,7 +194,17 @@ app/src/main/java/com/example/
 
 The app ships with seeded sample data (`DatabaseSeeder.kt`) as a last-resort fallback, so the full UI — Today feed (Deep Dives + Daily Pulse), story details, comparison, quiz, bookmarks — is explorable even with zero API keys configured.
 
-## 8. Known issues / pre-publish checklist
+## 10. How I would measure it
+
+**North star: % of users who reach the "you're caught up" end state on days they open the app.** Since the trade-off above means standard engagement metrics (session length, opens per day) actively point the wrong direction for this product, completion — not time spent — is the honest signal that the bounded-digest bet is working.
+
+Supporting metrics:
+
+- **Daily Quiz completion rate** — tests retention, not just passive reading; a user who reads but never quizzes hasn't demonstrated the app is building actual recall.
+- **Compare Coverage engagement rate** — the bias-literacy feature is the product's clearest differentiator from a standard news app; if it's not being opened, that differentiation isn't landing.
+- **7-day return rate among users who complete onboarding** — the exam-prep persona needs daily consistency over months, not a single good session, so return rate over raw usage is what actually matters here.
+
+## 11. Known issues / pre-publish checklist
 
 - `SettingsScreen.kt` has a placeholder UPI ID (`YOUR_UPI_ID@upi`) for the optional donate link — replace with a real ID or remove the section before treating this as production-ready
 - `applicationId` (`com.aistudio.digest.kxmpzq`) and `namespace` (`com.example`) are still AI-Studio-generated defaults — fine for a portfolio repo, but should be renamed (e.g. to a real reverse-domain ID) before any Play Store submission
@@ -192,7 +212,7 @@ The app ships with seeded sample data (`DatabaseSeeder.kt`) as a last-resort fal
 - The fallback path in `NewsSyncManager` (Gemini generating "realistic" news when no live NewsAPI key is present) produces synthetic content presented as today's news — fine for a demo/portfolio build, but worth a clear in-app disclosure before any real-world distribution
 - Both the NewsAPI fetch and the Gemini calls happen synchronously on app launch with no visible loading state beyond the existing "you're caught up" pattern and the refresh spinner — worth a UX pass if sync latency is noticeable on slow connections
 
-## 9. Possible roadmap (not built)
+## 12. Possible roadmap (not built)
 
 Listed here as product thinking, not as commitments:
 - Sync/auth so bookmarks and quiz history survive a reinstall or move across devices
