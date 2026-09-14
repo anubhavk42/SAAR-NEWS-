@@ -5,6 +5,8 @@
 
 *सार — Hindi for "essence" or "gist."*
 
+**▶️ [Try the live demo](https://appetize.io/app/b_rffl2jhr4g2tonxmpsnbzhgd6e)** — run the app in your browser, no install needed.
+
 </div>
 
 ## Screenshots
