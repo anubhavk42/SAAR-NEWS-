@@ -9,6 +9,10 @@
 
 </div>
 
+## Demo
+
+https://github.com/user-attachments/assets/e5c69174-dc73-4538-962a-b71a88d39817
+
 ## Screenshots
 
 <table>
