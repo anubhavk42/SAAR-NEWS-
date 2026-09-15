@@ -1,6 +1,6 @@
 <div align="center">
 
-# SAAR (सार)
+# SAAR-News (सार)
 ### A bounded, 5-minute daily current-affairs digest
 
 *सार — Hindi for "essence" or "gist."*
