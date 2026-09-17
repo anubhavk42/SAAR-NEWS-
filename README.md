@@ -13,28 +13,6 @@
 
 https://github.com/user-attachments/assets/e5c69174-dc73-4538-962a-b71a88d39817
 
-## Screenshots
-
-<table>
-<tr>
-<td align="center" width="33%"><img src="screenshots/onboarding_1_bounded_reading.jpeg" width="220"/><br/><sub>Onboarding: 5-min bounded reading</sub></td>
-<td align="center" width="33%"><img src="screenshots/onboarding_2_multi_perspective.jpeg" width="220"/><br/><sub>Onboarding: 3-source comparison</sub></td>
-<td align="center" width="33%"><img src="screenshots/onboarding_3_offline_pdf.jpeg" width="220"/><br/><sub>Onboarding: offline-first PDF export</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="screenshots/home_today_deep_dives.jpeg" width="220"/><br/><sub>Today's SAAR — Deep Dives / Daily Pulse</sub></td>
-<td align="center"><img src="screenshots/editorial_analysis.jpeg" width="220"/><br/><sub>Editorial Analysis tab</sub></td>
-<td align="center"><img src="screenshots/bookmarks.jpeg" width="220"/><br/><sub>Bookmarks</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="screenshots/quiz_question.jpeg" width="220"/><br/><sub>Daily Quiz</sub></td>
-<td align="center"><img src="screenshots/settings_dark.jpeg" width="220"/><br/><sub>Settings — Standard Dark theme</sub></td>
-<td align="center"><img src="screenshots/settings_sepia.jpeg" width="220"/><br/><sub>Settings — Sepia Paper theme</sub></td>
-</tr>
-</table>
-
----
-
 ## 1. The problem
 
 News and current-affairs apps are almost universally built on an attention-economy model: infinite scroll, algorithmic feeds, push notifications optimized for re-engagement rather than comprehension. For a specific, high-intent user — a student preparing for a competitive exam (UPSC, banking, SSC) or anyone who wants to stay genuinely informed without losing an hour to a feed — this is the wrong product shape. The job-to-be-done isn't "keep me scrolling," it's **"tell me what happened today, why it matters, and let me get back to my life."**
